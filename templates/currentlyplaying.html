@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currently Playing</title>
+    <link rel="stylesheet" href="{{ url_for('static' , filename='styles.css') }}">
+</head>
+
+<script>
+    async function skip() {
+        const response = await fetch('/skip')
+
+        if (!response.ok){
+            throw new Error('404 or sum')
+        }
+        get_activity()
+    }
+
+    async function back () {
+        const response = await fetch('/back')
+
+        if (!response.ok){
+            throw new Error('404 or sum')
+        }
+        get_activity()
+    }
+
+    async function get_activity() {
+        const response = await fetch('/get_activity')
+
+        if(!response.ok){
+            throw new Error('404 or sum')
+        }
+
+        const data = await response.text();
+        const activity = JSON.parse(data);
+
+        const elementsong = document.getElementById("song");
+        elementsong.innerHTML = activity.name;
+
+        const elementartist = document.getElementById("artist");
+        elementartist.innerHTML = "by " + activity.artists[0].name;
+    }
+
+    async function reload() {
+        //await new Promise(resolve => setTimeout(resolve, 2000));
+        get_activity()
+    }
+
+    reload()
+
+</script>
+<body>
+
+    <table>
+        <tr>
+            <th><a href="/" class="tablebutton">Home</a></th>
+            <th><a href="/activity" class="tablebutton">currently playing</a></th>
+            <th><a href="/top_songs" class="tablebutton">top songs</a></th>
+            <th><a href="/top_artists" class="tablebutton">top artists</a></th>
+            <th><a href="/genre" class="tablebutton">Genres</a></th>
+            <th><a href="/playlists" class="tablebutton">Your Playlists</a></th>
+            <th><a href="/queue" class="tablebutton">Queue Songs</a></th>
+        </tr>
+    </table>
+
+    <div class = "player">
+        
+        <button onclick="back()" class="button-link">back</button>
+        <div class=" elementleft">
+                <div id="song" class="track"> Loading...</div>
+                <div id="artist" class="track">Loading... </div>
+        </div>
+        <button onclick="skip()" class="button-link">skip</button>
+        <button onclick="get_activity()" class="button-link">refresh</button>
+    </div>
+    
+    
+</body>
+</html>

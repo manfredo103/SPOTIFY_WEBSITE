@@ -1,0 +1,193 @@
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --tablecolor: greenyellow;
+
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    display: grid;
+    place-items: center; 
+    height: 50vh;
+    width: 100%;
+    background-color: lightblue;
+    /* background-image: url("/static/assets/gamblers clean.jpg");
+    background-size: cover;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--tablecolor);
+    table-layout:auto;
+    width: 100%;
+    text-decoration: none;
+    color: gray;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+}
+
+.player { 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
+}
+
+.elementleft{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: lightblue;
+    height: 100%;
+    text-align: center;
+}
+
+.elementright{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: lightblue;
+    height: 100%;
+    text-align: center;
+
+}
+
+.button-link{
+    display: inline-block;
+    padding: 10px 60px;
+    font-size: 16px;
+    color: black; /* Text color */
+    font-weight: bold;
+    background-color: orange; /* Background color */
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Animation effect */
+}
+
+.tablebutton{
+    display: inline-block;
+    padding: 5px 5px;
+    font-size: 16px;
+    color: black;
+    background-color: var(--tablecolor);
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Animation effect */
+}
+
+.tablebutton:hover {
+    transform: scale(1.05);
+}
+
+.button-link:hover {
+    background-color: #ffcb52; /* Darker background on hover */
+    transform: scale(1.1);
+}
+    
+.container img{
+    width: 70%;
+    max-width: 100%;
+    height: auto
+}
+
+.cover{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 30px;
+    height: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: center;
+    
+}
+
+.cover1{
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.cover1 img{
+    height: 500px;
+    width: auto;
+}
+
+.title{
+    padding: 30px;
+}
+
+/* Navigation styles */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Main content styles */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    border-bottom: 2px solid #333;
+    margin-bottom: 10px;
+}
+
+/* Footer styles */
+footer {
+    /* position: absolute; */
+    bottom: 0;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    /* position: fixed; */
+    width: 100%;
+    /* bottom: 0; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}

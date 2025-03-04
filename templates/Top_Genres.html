@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>top artists</title>
+    <link rel="stylesheet" href="{{ url_for('static' , filename='styles.css') }}">
+</head>
+
+<script>
+function sortlists(dict) {
+    //for(let i= 0; )
+    
+}
+
+
+
+</script>
+<body>
+    <table>
+        <tr>
+            <th><a href="/" class="tablebutton">Home</a></th>
+            <th><a href="/activity" class="tablebutton">currently playing</a></th>
+            <th><a href="/top_songs" class="tablebutton">top songs</a></th>
+            <th><a href="/top_artists" class="tablebutton">top artists</a></th>
+            <th><a href="/genre" class="tablebutton">Genres</a></th>
+            <th><a href="/playlists" class="tablebutton">Your Playlists</a></th>
+            <th><a href="/queue" class="tablebutton">Queue Songs</a></th>
+        </tr>
+    </table>
+
+    <div class="elementleft">
+        <h1>genre</h1>
+
+        <ul>
+            {% for genre in genres %}
+                <ol>{{genre.genres}}</ol>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <p></p>
+</body>
+</html>
