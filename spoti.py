@@ -64,7 +64,10 @@ def login():
 def callback():
     code = request.args.get('code')
     token_info = sp_oauth.get_access_token(code)
-    session['token_info'] = token_info
+    sp = spotipy.Spotify(auth=token_info["access_token"])
+    user_info = sp.current_user()
+    session['spotify_username'] = user_info["id"]
+    session["token_info"] = token_info
     return redirect('/')
 
 @app.route('/playlists')
