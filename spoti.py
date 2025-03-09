@@ -19,12 +19,12 @@ SPOTIPY_REDIRECT_URI = os.getenv("SPOTIPY_REDIRECT_URI")
 
 # Define Spotify OAuth settings and scopes
 SCOPE = 'user-library-read playlist-read-private user-read-playback-state streaming user-top-read user-modify-playback-state'
-CACHE = '.spotipyoauthcache'
+#CACHE = '.spotipyoauthcache'
 
 sp_oauth = SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID, client_secret=SPOTIPY_CLIENT_SECRET,
-                            redirect_uri=SPOTIPY_REDIRECT_URI, scope=SCOPE, cache_path=CACHE)
+                            redirect_uri=SPOTIPY_REDIRECT_URI, scope=SCOPE)
     
-@app.route('/xd')
+#@app.route('/xd')
 def expired():
     #print("Inside expired function")
     token_info = session.get('token_info', None)
@@ -37,7 +37,7 @@ def expired():
     print(token_info['expires_at'])
     print(int(time.time()))
     
-    if token_info['expires_at'] - int(time.time()) < 60:
+    if token_info['expires_at'] - time.time() < 60:
         print("access token expired... requesting new one")
         token_info = sp_oauth.refresh_access_token(refresh_token=token_info['refresh_token'])
         session['token_info'] = token_info
