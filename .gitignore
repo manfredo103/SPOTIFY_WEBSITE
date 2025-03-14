@@ -2,3 +2,5 @@
 .env
 .spotipyoauthcache
 .cache
+flask_sessions
+
