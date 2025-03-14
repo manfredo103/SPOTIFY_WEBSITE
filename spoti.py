@@ -15,7 +15,7 @@ app.config["SESSION_TYPE"] = "filesystem"  # Stores sessions on the server
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_USE_SIGNER"] = True
 app.config["SESSION_KEY_PREFIX"] = "spotify_"  # Prevents key conflicts
-app.config["SESSION_FILE_DIR"] = os.path.abspath("/home/manfred/Documents/SPOTIFY_WEBSITE/flask_sessions")  # Where session files are stored
+app.config["SESSION_FILE_DIR"] = os.path.abspath(os.getenv('PATH'))  # Where session files are stored
 Session(app)
 
 
